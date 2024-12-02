@@ -1,0 +1,12 @@
+FROM ubuntu:24.04
+# prevent container shutdown
+CMD ["tail", "-f", "/dev/null"]
+
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+
+RUN apt update && apt upgrade -y
+
+WORKDIR /var/www/app
+
+RUN apt install -q -y curl python3 python3-venv pip
+

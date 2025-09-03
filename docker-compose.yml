@@ -1,6 +1,6 @@
 services:
     rag-elasticsearch:
-        image: elasticsearch:8.12.2
+        image: elasticsearch:9.1.3
         container_name: rag-elasticsearch
         ports:
             - "9200:9200"

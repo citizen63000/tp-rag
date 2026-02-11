@@ -2,9 +2,16 @@ from elasticsearch import Elasticsearch
 from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_elasticsearch.vectorstores import ElasticsearchStore
 from langchain_core.documents import Document
+from langchain_ollama import OllamaEmbeddings
 
 # Clean ElasticSearch DB
 Elasticsearch("http://rag-elasticsearch:9200").options(ignore_status=[400,404]).indices.delete(index='rag')
+
+# Embedding alternative to HuggingFace, need ollama pull nomic-embed-text
+# embeddings = OllamaEmbeddings(
+#     model="nomic-embed-text",   # modèle local Ollama
+#     base_url="http://rag-ollama:11434"  # URL Ollama (par défaut)
+# )
 
 # Initialize Vector store connection (ElasticSearch) with Embeddings generator (HuggingFaceEmbeddings)
 // @todo

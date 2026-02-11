@@ -5,8 +5,9 @@ from langchain_core.prompts import ChatPromptTemplate
 from langgraph.graph import START, StateGraph
 from typing_extensions import List, TypedDict
 from langchain_core.documents import Document
+from langchain_ollama import OllamaEmbeddings
 
-# Initialize Vector store connection (ElasticSearch) with Embeddings generator (HuggingFaceEmbeddings)
+# Initialize Vector store connection (ElasticSearch) with Embeddings generator (HuggingFaceEmbeddings or nomic-embed-text with ollama)
 // @todo
 
 # Connect to Ollama
